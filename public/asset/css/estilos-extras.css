@@ -1,0 +1,84 @@
+
+.letra_pensum{
+font-size: 10px;
+
+}
+
+
+.codigo{ background-color:#84C284 }
+
+.nombre{
+background: #757584;
+}
+.pre-requisito{
+
+}
+
+.btn-outline-azulverdoso {
+  color: #ffff;
+  background-image: none;
+  background-color: transparent;
+}
+.btn-outline-azulverdoso:hover {
+  color: #fff;
+
+  border-color: #76D7C4;
+}
+
+
+.btn2-outline-azulverdoso {
+	color: #fff
+  background-color: transparent;
+  border-color: #76D7C4;
+}
+.btn2-outline-azulverdoso:hover {
+  color: #fff;
+
+  border-color: #76D7C4;
+}
+
+
+
+.btn-gray {
+  color: #fff;
+  background-color: #292b2c;
+  border-color: #292b2c;
+}
+
+.btn-gray:hover {
+  color: #fff;
+  background-color: #292b2c;
+  border-color: #292b2c;
+}
+
+.btn-gray:focus, .btn-gray.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(41,43,44,1);
+          box-shadow: 0 0 0 2px rgba(41,43,44,1);
+}
+
+.btn-gray.disabled, .btn-gray:disabled {
+  background-color: #292b2c;
+  border-color: #292b2c;
+}
+
+.btn-gray:active, .btn-gray.active,
+.show > .btn-gray.dropdown-toggle {
+  color: #fff;
+  background-color: #292b2c;
+  background-image: none;
+  border-color: #292b2c;
+}
+
+
+
+
+
+
+
+
+
+
+
+.btn-outline-gray{color:#88bd5c;background-image:none;background-color:transparent;border-color:#88bd5c}.btn-outline-gray:hover{color:#fff;background-color:#88bd5c;border-color:#88bd5c}.btn-outline-gray.focus,.btn-outline-gray:focus{-webkit-box-shadow:0 0 0 2px rgba(136, 189, 92, 0.98);box-shadow:0 0 0 2px rgba(136, 189, 92, 0.98)}.btn-outline-gray.disabled,.btn-outline-gray:disabled{color:#88bd5c;background-color:transparent}.btn-outline-gray.active,.btn-outline-gray:active,.show>.btn-outline-gray.dropdown-toggle{color:#fff;background-color:#88bd5c;border-color:#88bd5c}
+
+
