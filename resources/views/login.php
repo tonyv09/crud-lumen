@@ -21,11 +21,11 @@
 		<form method="post" id="form_login" name="form_login"  autocomplete="off" >  
 			
 		
-			<label>Usuario</label><input class="form-control" type="text" name="user" id="user" value=" ">	
+			<label>Usuario</label><input class="form-control" type="text" name="user" id="user">	
 			
 			
 		
-			<label>Contraseña</label><input class="form-control" type="password" name="pass" id="pass" value="" >
+			<label>Contraseña</label><input class="form-control" type="password" name="pass" id="pass"  >
 		
 			
 		<button class="btn btn-success" type="button" id="iniciar">Iniciar</button>

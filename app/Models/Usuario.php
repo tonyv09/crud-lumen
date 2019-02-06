@@ -3,9 +3,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /** 
- * @property string nombre_usuario
- * @property string usuario
- * @property string estado
+ * @property string name
+ * @property string username
+ * @property string email
+ * @property string password
+ * @property string api_token
 */ 
 class Usuario extends Model
 {

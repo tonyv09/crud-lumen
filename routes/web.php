@@ -17,13 +17,16 @@ use Illuminate\Http\RedirectResponse;
 $router->post('/users/login',["uses"=>"UsersController@getToken"]);
 $router->group(['middleware'=>['auth']],function() use($router){
     //rutas de usuario que requieren autenticacion
-$router->get('/users/listar/{id}',['uses'=>'UsersController@index'] );
+$router->get('/users/listar',['uses'=>'UsersController@index'] );
 
-$router->post('/users',['uses'=>'UsersController@createUser'] );
+$router->post('/users/crear',['uses'=>'UsersController@createUser'] );
+$router->post('/users/modificar',['uses'=>'UsersController@modificarUsuario'] );
+$router->post('/users/eliminar',['uses'=>'UsersController@eliminarUsuario'] );
+
 });
 
-$router->get('/users/principal/{data}', function ($data) use ($router) {
-    return view('principal',array("users"=>$data));
+$router->get('/users/principal', function () use ($router) {
+    return view("principal");
     });
 
 //CRUD
@@ -34,51 +37,3 @@ $router->get('/inicio', function () use ($router) {
    // return response()->json("ruta SELECT");
    return view("login");
 });
-
-//insert
-$router->post('/insertar', function (Request $request) use ($router) {
-    $nuevo= new Usuario();
-    $nuevo->nombre_usuario=$request->input('nombre');
-    $nuevo->usuario=$request->input('usuario');
-    $nuevo->estado=$request->input('estado');
-    if($nuevo->save()){
-        return response()->json($nuevo);
-    }else{
-        return response()->json("error!");
-    }
-
-
- });
- 
-
-//update
-$router->put('/editar', function (Request $request) use ($router) {
-    $busqueda= Usuario::where('id','=',$request->input('id'))->first();
-    if($busqueda!=null){
-        $busqueda->usuario=$request->input('usuario');
-        $busqueda->nombre_usuario=$request->input('nombre');
-        $busqueda->estado=$request->input('estado');
-        $busqueda->save();
-        return response()->json($busqueda);
-
-    }else{
-        return response()->json("error!");
-    }
-
- });
-//delete
-$router->post('/eliminar', function (Request $request) use ($router) {
-    $busqueda= Usuario::where('id','=',$request->input('id'))->first();
-    if($busqueda!=null){
-        $busqueda->id=$request->input('id');
-        //$busqueda->nombre_usuario=$request->input('nombre');
-        //$busqueda->estado=$request->input('estado');
-        $busqueda->delete();
-        return response()->json($busqueda);
-
-    }else{
-        return response()->json("error!");
-    }
-
- });
-

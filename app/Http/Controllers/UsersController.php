@@ -12,11 +12,8 @@ class UsersController extends Controller
         if($request->isJson()){
 
             $user= User::all();
-            //$encode=json_encode($user); 
-           // var_dump($user);
-         //return redirect()->route('users/principal',302,array("users"=>$user,"encode"=>$encode),array("Content-Type"=>"application/json","api_tonken"=>$user['api_token']));
-             return response()->json([$user],201); 
-             //array("users"=>$user,"encode"=>$encode);
+
+            return response()->json([$user],201);
 
         }
         else{
@@ -28,7 +25,7 @@ class UsersController extends Controller
    function createUser(Request $request){
 
     if($request->isJson()){
-        $data=$request->json()->all();
+        $data=($request->json()->all());
         $user=User::create([
             "name"=>$data['name'],
             "username"=>$data['username'],
@@ -42,8 +39,45 @@ class UsersController extends Controller
         else{
             return response()->json(array("Error"=>"peticion no valida"), 401); 
     
-        } 
+        }
    }
+   function modificarUsuario(Request $request){
+
+    if($request->isJson()){
+        $data=($request->json()->all());
+        $user=User::where('id','=',$data['id'])->first();
+        $user->name=$data['name'];
+        $user->username=$data['username'];
+        $user->email=$data['email'];
+        $user->password=Hash::make($data['password']);
+        $user->save();
+        
+        return response()->json($user,201);
+    
+        }
+        else{
+            return response()->json(array("Error"=>"modificacion fallida!"), 401); 
+    
+        }
+
+   }
+
+   function eliminarUsuario(Request $request){
+
+    if($request->isJson()){
+        $data=($request->json()->all());
+        $user=User::where('id','=',$data['id'])->first();
+        $user->delete();
+        return response()->json($user,201);
+    
+        }
+        else{
+            return response()->json(array("Error"=>"peticion no valida"), 401); 
+    
+        }
+
+   }
+
 
    function getToken(Request $request){
     
@@ -55,7 +89,6 @@ class UsersController extends Controller
             if($user&& Hash::check($data['password'],$user->password)){
 
                 return response()->json([$user],201);
-                //return array("encode"=>json_encode($user));
             
             }
             else{

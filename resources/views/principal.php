@@ -4,11 +4,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="stylesheet" href="/asset/css/login.css">
+  	<link rel="stylesheet" href="/asset/css/login.css">
 	<link rel="stylesheet" type="text/css" href="/asset/css/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/asset/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="/asset/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="/asset/css/dataTables.bootstrap.min.css">
 	<link href="/asset/cssal/prettify.css">
-  <link href="/asset/cssal/styles.css">
+  	<link href="/asset/cssal/styles.css">
+	
+
 
 
 	<title>Principal</title>
@@ -22,59 +25,47 @@
 		</div>
 		<br>
 		<div class="row">
-			<button class="btn btn-info"> Crear usuario</button>
+		<form action="" id="guardar" >
+		<input type="hidden" id="id_registro" >
+                <div class="row">
+                    <label for="nombre">Nombre<input type="text" id="nombre"></label>
+                </div>
+				<br>
+                <div class="row">
+                    <label for="username">Usuario</label><input type="text" id="username" name="username">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="password">Clave</label><input type="password" id="password" name="password">
+                </div>
+				<br>
+				<div class="row">
+                    <label for="email">Email</label><input type="text" id="email" name="email">
+                </div>
+                <br>
+				<button class="btn btn-success" type="button" id="nuevo_usuario" name="nuevo_usuario" >Guardar</button>
+				<br>
+				<button class="btn btn-success" type="button" id="modificar_usuario" name="modificar_usuario" style="display:none" >Modificar</button>
+				<button  type="reset" id="cancelar" hidden ></button>
+            </form>		
 		</div>
+<br>
+
+
 		<br>
 		<div class="row">
 		<h3>Lista de usuarios</h3>
 		</div>
 		<div class="row">
-		<table class="table">
+		<table class="table" id="lista_usuarios" name="lista_usuarios">
 			<thead>
 				<th>Nombre</th>
 				<th>User</th>
 				<th>Email</th>
-				<th>Modificar</th>
 				<th>Eliminar</th>
+				<th>Modificar</th>
 			</thead>
 			<tbody>
-			<?php 
-				foreach($users as $user){
-					?>
-					<tr> 
-						<td> 
-							<?php echo $user['name']; ?> 
-						</td>
-						<td>
-							<?php echo $user['username'];?> 
-						</td>
-						<td>
-						<?php echo $user['email'];?> 
-						</td>
-						<td>
-						<a  id="modificar" onclick="" >
-							<span class="fa-stack fa-1x">
-								<i class="fa fa-circle fa-stack-2x text-info"></i>
-								<i class="fa fa-rotate-left fa-stack-1x fa-inverse"></i>
-							 </span>
- 						</a>
-						</td>
-						<td>     
-							<a id="eliminar" onclick="" >
-								<span class="fa-stack fa-1x">
-									<i class="fa fa-circle fa-stack-2x text-danger"></i>
-									<i class="fa fa-close fa-stack-1x fa-inverse"></i>
-								</span>
-							</a>
-						</td> 
-					</tr>
-					
-			
-			<?php
-
-
-				}
-			?>
 			</tbody>
 		</table>
 		</div>
@@ -88,4 +79,7 @@
 	<script src="/asset/js/tether-1.4.0.js" ></script>
 	<script src="/asset/js/bootstrap.min.js"></script>
  	<script src="/asset/jsal/jquery.bsAlerts.js"></script>
+	 <script src="/asset/js/jquery.dataTables.min.js"></script>
+	 <script src="/asset/js/dataTables.bootstrap.min.js"></script>
+	 <script src="/asset/js/principal.js"></script>
 </html>
